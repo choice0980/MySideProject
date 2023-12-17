@@ -7,11 +7,7 @@ def stock_beta_and_totalRisk(stock_closing_prices, twii_closing_prices):
     twii_returns = np.diff(twii_closing_prices) / twii_closing_prices[:-1]
     stock_returns = np.diff(stock_closing_prices) / stock_closing_prices[:-1]
 
-    # 計算平均收益率
-    mean_twii_returns = np.mean(twii_returns)
-    mean_stock_returns = np.mean(stock_returns)
-
-    # 計算協方差和市場變異數
+    # 計算共變異數和市場變異數
     covariance = np.cov(stock_returns, twii_returns)[0, 1]
     market_variance = np.var(twii_returns)
 
