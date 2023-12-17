@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>股票 Beta 值和總風險?算器</title>
+</head>
+<body>
+    <h1>股票 Beta 值和總風險?算器</h1>
+    <form id="dataForm">
+        <label for="twii">加權指?  五天价格:</label><br>
+        <input type="text" id="twii" name="twii" required><br>
+        <label for="stock">特定股票  五天价格:</label><br>
+        <input type="text" id="stock" name="stock" required><br><br>
+        <input type="submit" value="?算">
+    </form>
+
+    <h2>?果:</h2>
+    <div id="result"></div>
+
+    <script>
+        // JavaScript 代??放在?里
+        document.getElementById("dataForm").onsubmit = function(event) {
+        event.preventDefault();
+
+        var twii = document.getElementById("twii").value.split(',').map(Number);
+        var stock = document.getElementById("stock").value.split(',').map(Number);
+
+        // 使用 Fetch API 或者 jQuery.ajax ?送?些?据到后端
+        fetch('/calculate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ twii: twii, stock: stock }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("result").innerHTML = "Beta 值: " + data.beta + "<br>???: " + data.total_risk;
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    };
+
+    </script>
+</body>
+</html>
