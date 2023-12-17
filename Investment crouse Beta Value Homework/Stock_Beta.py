@@ -15,8 +15,9 @@ def stock_beta_and_totalRisk(stock_closing_prices, index_closing_prices):
     total_risk = np.std(stock_returns)
 
     print('This sotck\'s Beta: ', beta, '\nThis stock\'s total risk: ', total_risk)
+    
 
-stock_price = np.array([10, 11, 12, 13, 14])
-index_price = np.array([100, 110, 120, 130, 140])
+stock_price = np.array([10, 11, 12, 13, 14])        # 股票收盤價格
+index_price = np.array([100, 110, 120, 130, 140])   # 指數收盤價格
 stock_beta_and_totalRisk(stock_price,index_price )
 
