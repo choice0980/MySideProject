@@ -23,3 +23,5 @@ market_variance = np.var(twii_returns)
 beta = covariance / market_variance
 beta
 
+print('This sotck\'sBeta: ', beta)
+
