@@ -21,7 +21,7 @@ market_variance = np.var(twii_returns)
 
 # 計算 Beta 值
 beta = covariance / market_variance
-beta
+total_risk = np.std(stock_returns)
 
-print('This sotck\'sBeta: ', beta)
+print('This sotck\'s Beta: ', beta, '\nThis stock\'s total risk: ', total_risk)
 
